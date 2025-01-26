@@ -1,40 +1,51 @@
-import Flashcard from '../Flashcard/Flashcard'
 import { useState } from 'react'
+import Flashcard from '../Flashcard/Flashcard'
+import Form from '../Form/Form'
 import QAData from '../../assets/QAData';
 import styles from './FlashcardContainer.module.css'
 
 export default function FlashcardContainer() {
-
-    // set the inital state to the Obj key question 
+    
+    const [currentQAData, setCurrentQAData] = useState(QAData)
+    
     const [qAndA, setQandA] = useState(QAData.map(qa => qa.question))
 
+    // function to add new Flashcards
+    function addFlashcard(newFlashcard) {
+        // add new flashcard to the list 
+        setCurrentQAData( prevFlashcards => [...prevFlashcards, newFlashcard]);
+
+        //update card states to include new flashcard's question
+        setQandA(prevStates => [...prevStates, newFlashcard.question])
+    }
+    
     function handleClick(index) {
         setQandA(prevStates => {
             // create new array for mutuation concerns
             const newStates = [...prevStates]
 
             // Toggle between question and answer for the clicked card
-            newStates[index] = newStates[index] === QAData[index].question  ? QAData[index].answer : QAData[index].question ;
+            newStates[index] = newStates[index] === currentQAData[index].question  ? currentQAData[index].answer : currentQAData[index].question ;
 
             return newStates;
-        }
-       )
-            
-            
+        })     
     }
 
     return (
-        <section className={styles['flashcard-container']}>
-        {/* Flashcards content will go here */}
-            {QAData.map((card, index) => 
-                (<Flashcard 
-                    key={index} 
-                    handleClick={handleClick}
-                    value={qAndA[index]}
-                    index={index}
-                    />)
-            )}
-        </section>
+        <div>
+            <Form addFlashcardProp={addFlashcard} />
+            <section className={styles['flashcard-container']}>
+            {/* Flashcards content will go here */}
+                    {currentQAData.map((card, index) => 
+                        (<Flashcard 
+                            key={index} 
+                            handleClickProp={handleClick}
+                            value={qAndA[index]}
+                            index={index}
+                            />)
+                    )}
+            </section>
+        </div>
     )
 }
 
