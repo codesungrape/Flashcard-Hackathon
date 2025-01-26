@@ -2,5 +2,13 @@
     border: 2px solid black; 
     padding: 20px;
     border-radius: 8px;
+    aspect-ratio: 1 / 1; /* Makes cards perfectly square */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 300px; /* Maximum width */
+    max-height: 200px; /* Maximum height */
+    font-size: 15px;
   }
   

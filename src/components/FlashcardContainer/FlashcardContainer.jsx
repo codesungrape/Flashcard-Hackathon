@@ -1,19 +1,39 @@
 import Flashcard from '../Flashcard/Flashcard'
 import { useState } from 'react'
+import QAData from '../../assets/QAData';
+import styles from './FlashcardContainer.module.css'
+
 export default function FlashcardContainer() {
 
-    const [cardSide, setCardSide] = useState("Question")
+    // set the inital state to the Obj key question 
+    const [qAndA, setQandA] = useState(QAData.map(qa => qa.question))
 
-    function handleClick() {
-        setCardSide(prev => prev === "Question" ? "Answer" : "Question")
+    function handleClick(index) {
+        setQandA(prevStates => {
+            // create new array for mutuation concerns
+            const newStates = [...prevStates]
+
+            // Toggle between question and answer for the clicked card
+            newStates[index] = newStates[index] === QAData[index].question  ? QAData[index].answer : QAData[index].question ;
+
+            return newStates;
+        }
+       )
+            
+            
     }
 
     return (
-        <section style={{ border: '2px solid black', padding: '20px', borderRadius: '8px' }}>
+        <section className={styles['flashcard-container']}>
         {/* Flashcards content will go here */}
-            <Flashcard cardSide={cardSide} handleClick={handleClick}/>
-            <Flashcard cardSide={cardSide} handleClick={handleClick}/>
-            <Flashcard cardSide={cardSide} handleClick={handleClick}/>
+            {QAData.map((card, index) => 
+                (<Flashcard 
+                    key={index} 
+                    handleClick={handleClick}
+                    value={qAndA[index]}
+                    index={index}
+                    />)
+            )}
         </section>
     )
 }
@@ -21,5 +41,4 @@ export default function FlashcardContainer() {
 
 
 
-
- // now that ive set up the toggle, how do I push new data to each Flashcard? 
+// now that ive set up the toggle, how do I push new data to each Flashcard? 

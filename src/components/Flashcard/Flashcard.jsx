@@ -1,12 +1,15 @@
 
 import styles from './Flashcard.module.css'
 
-export default function Flashcard({cardSide, handleClick}) {
+export default function Flashcard({value, handleClick, index}) {
 
     
     return (
-        <section className={styles.flashcard} onClick={handleClick} >
-            <p>{cardSide}</p>
+        <section className={styles.flashcard} 
+        onClick={() => handleClick(index)}
+        key={index} 
+        >
+        {value}  
         </section>
     )
 }
