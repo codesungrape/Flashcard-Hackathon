@@ -2,7 +2,7 @@
   "name": "my-flashcards-app",
   "version": "1.0.0",
   "description": "Flashcards app with Vite, React, and Framer Motion.",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,17 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "framer-motion": "^12.0.6",
-    "vite": "^6.0.11"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "framer-motion": "^12.0.6"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.19.0",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-react-refresh": "^0.4.18"
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "vite": "^6.0.11"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "license": "ISC"
 }
