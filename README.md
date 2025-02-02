@@ -1,80 +1,128 @@
-# React + Vite
+# Flashcards App - React Hackathon
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+It's Hackathon time and I had 24 hours to building an interactive Flashcards app dedicated to learning React, and present upon it!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This user-friendly platform allows users to dynamically add, view, and interact with flashcards. Each flashcard holds a question on one side and an answer on the other. The user should be able to toggle the card to show the question or answer. The card should start off showing the question.
 
-It's Hackathon time and we're going to keep flexing our React muscles by building an interactive Flashcards app dedicated to learning React!
+![Render Tree] (src/assets/ComponentTree.png)
 
-Imagine a user-friendly platform where users can dynamically add, view, and interact with flashcards. Each flashcard holds a question on one side and an answer on the other. The user should be able to toggle the card to show the question or answer. The card should start off showing the question.
+## ✨ Features
 
-Click here to access the design assets for this project. You will be able to see individual assets, the complete design and marked up design showing how we would roughly draw component boundaries.
-Advice
-Once you accept the workshop you should have an empty repo. Start by navigating to the folder in terminal then running:
+- Create custom flashcards with questions and answers
+- Flip cards to reveal answers
+- Responsive design that works on both desktop and mobile
+- Persistent storage using localStorage
+- Intuitive user interface for easy navigation
 
-"npm create vite@latest . -- --template react"
+## 💻 Tech Stack
 
-^^ this command will create a new React app using the Vite React template 🙂
+- React 18
+- Vite
+- CSS Modules
+- localStorage for data persistence
 
-Once that command has completed you can run "npm install" then "npm run dev" to get working.
+## 📁 Project Structure
 
-We would always suggest starting with a single component to get something working. Then maybe split out a few bits to create a Header and Footer component.
+```sh
+src/
+  ├── components/
+  │   ├── Flashcard/
+  │   ├── FlashcardList/
+  │   └── AddFlashcard/
+  ├── assets/
+  ├── styles/
+  └── App.jsx
+```
 
-By the time you finish we think you'll end up with a component tree that looks something like this. You could go even further and split out even more but it's better to keep simple to begin.
+## 🎯 Usage
 
-App
-├── Header
-├── Form
-├── Flashcards
-│ └── Flashcard
-└── Footer
+Here's a quick example of how to use the flashcard app:
 
-🚨 A final piece of advice would be: The Header, Footer, Flashcards and Flashcard are the easier bits. Do them first 🙂. Start off by hard coding some "flashCards" data in the App component to begin with. Once those components are done, then move on to create a Form component.
+1. Click "Add Flashcard" button
+2. Enter your question and answer
+3. Click "Create" to add the flashcard
+4. Click on any flashcard to flip it
 
-Forms are new to you and you will need to work out how to give the Form component the ability to update the top level state that holds the list of cards.
+## Acknowledgements
 
-Discuss and Explore
-Where does my data live? (Identifying where to keep State)
+- [Vite](https://vite.dev/guide/)
+- [React](https://react.dev/)
 
-This application probably has at least two main types of state.
+## Authors
 
-Top level state to hold a list of all cards to render. Then each Flashcard will need its own state to track the open/closed status of the card.
+- [@shanti](https://github.com/codesungrape)
 
-Choosing what state to track and what level to keep the state will require some thought. The state tracking the list of all cards will need to be used by Flashcards and Form. Flashcards will render the list and Form will need to use the "setter" state function to add cards to the list. So it makes sense the state lives in the shared parent component App maybe.
+## Contributing
 
-The state for each Flashcard (open/closed) doesn't have anything to do with any other component so maybe it just lives in Flashcard.
+Contributions are always welcome!
 
-Useful React Docs: https://react.dev/learn/sharing-state-between-components
+## 🚀 Deployment
 
-Practical Tips for State and Props
-Lift state up: If two components need access to the state (reading the state or editing/updating the state) then consider lifting the state into a parent component and passing the state from the parent to the child as props.
-Passing state "setter" functions as props: Remember you can pass almost anything to a component as a prop. There is nothing stopping you passing a "setter" state function from a parent to child component using props.
-Keep most components simple: Limit the amount you use state. Most components should just be passed props and render some UI.
+### Locally (Development Mode)
 
-Stretch Goals
-After you've built the core features of your React Flashcards app and it's up and running smoothly, why stop there? Consider these stretch goals as your next steps for growth and improvement:
+To start the development server, run:
 
-Enable Editing Existing Flashcards: Allow users to go back and edit the questions or answers on their flashcards.
-Add Labels or Categories to Flashcards: Introduce a way for users to organize their flashcards by topic, difficulty, or any other category they find useful.
-Create a Shuffle Feature: Introduce the ability to shuffle the order of flashcards.
-Implement a Search Function: Add the ability for users to quickly search for specific flashcards.
-Incorporate a Daily Review Limit: Set up a feature that allows users to limit how many new flashcards they review each day, promoting a steady learning pace and preventing burnout.
+```sh
+npm run dev
+```
 
-Feel free to explore and pursue other stretch goals as a group, beyond the suggestions provided and remember to bring all your thoughts and learnings together for presentations 👀
+## 🛠 Installation
 
-Presentation Guidelines ⭐
-Prepare a 6-minute end-of-day demo.
-Each team will present to a coach.
-Each team member must participate in the presentation.
+### Prerequisites
 
-Evaluation Criteria ⚡
-Teamwork: How well did the team work together? What worked well? What would you change for next time?
-Presentation: Was the presentation clear, concise, and kept on time?
-Plan Quality: How well was the project planned out? Did they create and follow a requirements table for their chosen resource? Did they plan their database tables/schema?
-Code Quality: Is the code clean, formatted and organised?
-Git Practices: Were changes documented with frequent, clear commits?
-Functionality: Do the Flashcards do what is expected?
-Completion: Are all required features implemented?
+- Node.js 16.0 or higher
+- npm or yarn
+
+### Setup Steps
+
+1. Clone the repository
+
+```sh
+git clone https://github.com/codesungrape/Flashcard-Hackathon.git
+```
+
+2. Navigate to the project directory
+
+```sh
+cd Flashcard-Hackathon
+```
+
+3. Install dependencies
+
+```sh
+npm install
+```
+
+4. Start the development server
+
+```sh
+npm run dev
+```
+
+8. Add a Bug Reporting section:
+
+```markdown
+## 🐛 Bug Reporting
+
+Feel free to [open an issue](https://github.com/codesungrape/Flashcard-Hackathon/issues) if you find any bugs or want to suggest improvements.
+```
+
+## RoadMap
+
+- Add a feature to allow users to delete flashcards
+- Add a feature to allow users to edit flashcards
+- Add a feature to allow users to shuffle flashcards
+- Add a feature to allow users to filter flashcards
+
+## Testing Roadmap
+
+- Add tests for the Flashcard component
+- Add tests for the FlashcardList component
+- Add tests for the AddFlashcard component
+- Add tests for the App component
+
+## 📝 License
+
+[MIT](LICENSE.md) - feel free to use this project for any purpose
